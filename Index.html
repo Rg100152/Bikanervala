@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bikanervala Sweets & Delights | Pure Desi Ghee Indian Mithai & Hampers</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              900: '#580812', // Deep Royal Maroon
+              800: '#7B111F',
+              700: '#9B1D2C',
+              600: '#B82839',
+              50: '#FDF4F4'
+            },
+            saffron: {
+              600: '#D97706',
+              500: '#F59E0B',
+              400: '#FBBF24',
+              100: '#FEF3C7',
+              50: '#FFFBEB'
+            },
+            gold: {
+              400: '#F3C043',
+              500: '#DCA524',
+              600: '#B88210'
+            },
+            cream: '#FCF8F2',
+            cardbg: '#FFFDF9'
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti for Celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar & Aesthetics */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FDF4F4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DCA524;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7B111F;
+    }
+    .heritage-border {
+      border: 1px solid rgba(220, 165, 36, 0.35);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFE28A 0%, #DCA524 50%, #9B6700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .royal-gradient {
+      background: linear-gradient(135deg, #7B111F 0%, #4D060E 100%);
+    }
+    .gold-shimmer {
+      background: linear-gradient(90deg, #F59E0B, #FDE68A, #F59E0B);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer {
+      to { background-position: 200% center; }
+    }
+    /* Indian Veg Symbol */
+    .veg-symbol {
+      width: 15px;
+      height: 15px;
+      border: 1.5px solid #16a34a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      background: white;
+    }
+    .veg-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #16a34a;
+      border-radius: 50%;
+    }
+    /* Subtle Indian Floral Pattern Background */
+    .bg-rangoli {
+      background-color: #FAF5EE;
+      background-image: radial-gradient(#dca524 0.65px, transparent 0.65px), radial-gradient(#dca524 0.65px, #FAF5EE 0.65px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+      background-opacity: 0.15;
+    }
+  </style>
+</head>
+<body class="bg-rangoli text-neutral-800 font-sans antialiased selection:bg-gold-500 selection:text-white">
+
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <div class="bg-royal-900 text-amber-200 text-xs py-2 px-4 border-b border-gold-500/30">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-center">
+        <span class="inline-flex items-center justify-center bg-gold-500 text-royal-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse">Festive Offer</span>
+        <span>✨ Free express delivery on orders above ₹999 | Use code <strong class="text-white underline cursor-pointer" onclick="quickApplyCoupon('DIWALI25')">DIWALI25</strong> for 15% OFF!</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] text-amber-100/90 font-medium">
+        <button onclick="openModal('pincodeModal')" class="hover:text-gold-400 flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span id="currentPincodeLabel">Deliver to: 110001 (New Delhi)</span>
+        </button>
+        <span class="opacity-40">|</span>
+        <button onclick="openToast('Store Locator: 120+ Sweet Outlets open across India & Overseas!')" class="hover:text-gold-400 flex items-center gap-1">
+          <i data-lucide="store" class="w-3.5 h-3.5"></i> Store Locator
+        </button>
+        <span class="opacity-40">|</span>
+        <button onclick="openModal('trackOrderModal')" class="hover:text-gold-400 flex items-center gap-1">
+          <i data-lucide="truck" class="w-3.5 h-3.5"></i> Track Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN HEADER & BRAND NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-amber-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full royal-gradient flex items-center justify-center border-2 border-gold-500 shadow-md transform group-hover:scale-105 transition-all">
+          <span class="font-serif font-black text-xl text-gold-400">B</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-serif font-extrabold text-2xl tracking-tight text-royal-900 group-hover:text-royal-800">BIKANERVALA</span>
+            <span class="text-[10px] bg-red-100 text-royal-800 font-bold px-1.5 py-0.5 rounded border border-red-200">1905</span>
+          </div>
+          <span class="text-[10px] font-medium tracking-widest text-gold-600 uppercase">Sweets &bull; Savouries &bull; Delights</span>
+        </div>
+      </a>
+
+      <!-- Search Bar with Live Suggestions -->
+      <div class="relative flex-1 max-w-md hidden md:block">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Search Kaju Katli, Gulab Jamun, Besan Laddu..." 
+            class="w-full pl-10 pr-10 py-2.5 bg-cream border border-amber-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:bg-white transition-all shadow-inner"
+            oninput="handleSearch(this.value)"
+          />
+          <i data-lucide="search" class="w-4 h-4 text-neutral-400 absolute left-3.5 top-3"></i>
+          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3.5 top-2.5 text-neutral-400 hover:text-royal-800">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <!-- Live Search Dropdown -->
+        <div id="searchDropdown" class="hidden absolute left-0 right-0 top-12 bg-white rounded-2xl shadow-2xl border border-amber-200 p-3 z-50 max-h-80 overflow-y-auto"></div>
+      </div>
+
+      <!-- Quick Action Icons -->
+      <div class="flex items-center gap-3 sm:gap-5">
+        <!-- Search Trigger for Mobile -->
+        <button onclick="toggleMobileSearch()" class="p-2 text-royal-900 hover:text-gold-600 md:hidden">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Guarantee Badge Pill (Desktop) -->
+        <div class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+          <div class="veg-symbol"><div class="veg-dot"></div></div>
+          <span>100% Pure Desi Ghee</span>
+        </div>
+
+        <!-- Wishlist Button -->
+        <button onclick="openWishlistDrawer()" class="relative p-2 text-royal-900 hover:text-gold-600 transition" title="Wishlist">
+          <i data-lucide="heart" class="w-6 h-6"></i>
+          <span id="wishlistCountBadge" class="hidden absolute -top-1 -right-1 bg-royal-700 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative flex items-center gap-2 bg-royal-900 hover:bg-royal-800 text-amber-200 px-3.5 py-2 rounded-full font-medium text-sm transition-all shadow-md hover:shadow-lg">
+          <div class="relative">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span id="cartCountBadge" class="absolute -top-2 -right-2 bg-gold-500 text-royal-900 text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </div>
+          <span class="hidden sm:inline font-bold" id="cartTotalHeader">₹0</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Search Row -->
+    <div id="mobileSearchRow" class="hidden px-4 pb-3 md:hidden">
+      <div class="relative">
+        <input 
+          type="text" 
+          placeholder="Search mithai, dry fruits, gift boxes..." 
+          class="w-full pl-9 pr-8 py-2 bg-cream border border-amber-200 rounded-full text-sm"
+          oninput="handleSearch(this.value)"
+        />
+        <i data-lucide="search" class="w-4 h-4 text-neutral-400 absolute left-3 top-2.5"></i>
+      </div>
+    </div>
+
+    <!-- Category Nav Strips -->
+    <nav class="bg-royal-900 text-white overflow-x-auto text-xs font-medium scrollbar-none border-t border-gold-500/20">
+      <div class="max-w-7xl mx-auto px-4 flex items-center gap-6 whitespace-nowrap py-2.5">
+        <button onclick="setCategoryFilter('all')" class="cat-pill active text-amber-300 font-bold hover:text-amber-200 flex items-center gap-1">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i> All Sweets
+        </button>
+        <button onclick="setCategoryFilter('kaju')" class="cat-pill text-neutral-200 hover:text-amber-300 transition">Kaju & Cashew Delights</button>
+        <button onclick="setCategoryFilter('ghee')" class="cat-pill text-neutral-200 hover:text-amber-300 transition">Pure Desi Ghee Classics</button>
+        <button onclick="setCategoryFilter('chenna')" class="cat-pill text-neutral-200 hover:text-amber-300 transition">Bengali & Chenna Treats</button>
+        <button onclick="setCategoryFilter('laddus')" class="cat-pill text-neutral-200 hover:text-amber-300 transition">Laddus & Halwa</button>
+        <button onclick="setCategoryFilter('dryfruit')" class="cat-pill text-neutral-200 hover:text-amber-300 transition">Dry Fruit Bites & Sugar Free</button>
+        <button onclick="setCategoryFilter('hampers')" class="cat-pill text-neutral-200 hover:text-amber-300 transition">Festive Gift Boxes</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HERO / COLLECTION BANNER ================= -->
+  <section class="relative bg-royal-900 overflow-hidden text-white border-b-4 border-gold-500">
+    <!-- Traditional Floral Overlay -->
+    <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#F59E0B_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-14 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-gold-500/20 text-gold-300 border border-gold-500/40 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+            <i data-lucide="crown" class="w-3.5 h-3.5 text-gold-400"></i> Royal Rajasthani & Traditional Heritage Since 1905
+          </div>
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-5xl font-extrabold leading-tight">
+            Pure Desi Ghee <br/>
+            <span class="gold-gradient-text">Authentic Indian Mithai</span>
+          </h1>
+          <p class="text-neutral-200 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+            Indulge in our timeless confections prepared with 100% pure cow ghee, premium Kashmiri saffron, and top-grade dry fruits. Handcrafted by master halwais with no artificial preservatives.
+          </p>
+          
+          <!-- Key USPs -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-amber-200 font-medium">
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400"></i> 100% Vegetarian</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400"></i> Fresh Daily Production</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400"></i> Vacuum Pack Freshness</span>
+          </div>
+
+          <!-- Coupon Strip -->
+          <div class="pt-3">
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-gold-500/40 p-2 sm:p-2.5 rounded-xl shadow-lg">
+              <div class="bg-gold-500 text-royal-900 font-black text-xs px-2.5 py-1.5 rounded-lg flex items-center gap-1">
+                <i data-lucide="tag" class="w-3.5 h-3.5"></i> DIWALI25
+              </div>
+              <span class="text-xs text-amber-100 font-medium">Get flat 15% OFF on orders over ₹1299</span>
+              <button onclick="quickApplyCoupon('DIWALI25')" class="text-xs bg-gold-400 hover:bg-gold-300 text-royal-900 font-bold px-3 py-1.5 rounded-lg transition">Apply</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Sweets Showcase Cards in Hero -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-sm rounded-2xl overflow-hidden shadow-2xl border-2 border-gold-500/50 bg-royal-800">
+            <img 
+              src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=800&auto=format&fit=crop" 
+              alt="Assorted Royal Indian Sweets Bikanervala"
+              class="w-full h-72 object-cover"
+              onerror="this.src='https://placehold.co/600x400/7B111F/F3C043?text=Bikanervala+Sweets'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white flex items-center justify-between">
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-gold-400">Signature Pack</span>
+                <h3 class="font-serif font-bold text-lg">Royal Mithai Thali Hamper</h3>
+                <p class="text-xs text-amber-200">Kaju Katli, Besan Laddu, Dodha & Dry Fruits</p>
+              </div>
+              <button onclick="quickView(12)" class="bg-gold-500 hover:bg-gold-400 text-royal-900 font-bold text-xs px-3.5 py-2 rounded-full shadow-lg transition">View Pack</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST BADGES BAR ================= -->
+  <section class="bg-amber-50/70 border-b border-amber-200/80 py-4">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div class="flex items-center justify-center gap-2 text-royal-900">
+        <div class="veg-symbol"><div class="veg-dot"></div></div>
+        <span class="text-xs font-semibold">100% Shuddh Shakahari</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-royal-900">
+        <i data-lucide="shield-check" class="w-4 h-4 text-gold-600"></i>
+        <span class="text-xs font-semibold">Desi Ghee Guaranteed</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-royal-900">
+        <i data-lucide="package-check" class="w-4 h-4 text-gold-600"></i>
+        <span class="text-xs font-semibold">Aroma Lock Vacuum Box</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-royal-900">
+        <i data-lucide="truck" class="w-4 h-4 text-gold-600"></i>
+        <span class="text-xs font-semibold">Express Pan-India Delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CATALOG SECTION ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div class="flex flex-col lg:flex-row gap-8 items-start">
+      
+      <!-- ================= FILTERS SIDEBAR ================= -->
+      <aside class="w-full lg:w-72 bg-white rounded-2xl p-5 shadow-sm border border-amber-200/80 shrink-0">
+        <div class="flex items-center justify-between pb-3 border-b border-amber-100">
+          <div class="flex items-center gap-2">
+            <i data-lucide="sliders-horizontal" class="w-4 h-4 text-royal-800"></i>
+            <h2 class="font-serif font-bold text-royal-900 text-base">Filter Sweets</h2>
+          </div>
+          <button onclick="resetAllFilters()" class="text-xs text-gold-600 hover:text-royal-800 font-semibold underline">Reset All</button>
+        </div>
+
+        <!-- Filter: Categories -->
+        <div class="py-4 border-b border-amber-100">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2.5">Category</h3>
+          <div class="space-y-1.5 text-sm" id="categoryFilterGroup">
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="all" checked onchange="setCategoryFilter('all')" class="text-royal-800 focus:ring-gold-500">
+                <span>All Sweets</span>
+              </span>
+              <span class="text-xs text-neutral-400" id="count-all">12</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="kaju" onchange="setCategoryFilter('kaju')" class="text-royal-800 focus:ring-gold-500">
+                <span>Kaju Sweets</span>
+              </span>
+              <span class="text-xs text-neutral-400">2</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="ghee" onchange="setCategoryFilter('ghee')" class="text-royal-800 focus:ring-gold-500">
+                <span>Pure Desi Ghee</span>
+              </span>
+              <span class="text-xs text-neutral-400">3</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="chenna" onchange="setCategoryFilter('chenna')" class="text-royal-800 focus:ring-gold-500">
+                <span>Bengali Chenna</span>
+              </span>
+              <span class="text-xs text-neutral-400">2</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="laddus" onchange="setCategoryFilter('laddus')" class="text-royal-800 focus:ring-gold-500">
+                <span>Laddus & Halwa</span>
+              </span>
+              <span class="text-xs text-neutral-400">2</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="dryfruit" onchange="setCategoryFilter('dryfruit')" class="text-royal-800 focus:ring-gold-500">
+                <span>Dry Fruit / Low Calorie</span>
+              </span>
+              <span class="text-xs text-neutral-400">2</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer hover:text-royal-800">
+              <span class="flex items-center gap-2">
+                <input type="radio" name="catFilter" value="hampers" onchange="setCategoryFilter('hampers')" class="text-royal-800 focus:ring-gold-500">
+                <span>Festive Gift Boxes</span>
+              </span>
+              <span class="text-xs text-neutral-400">1</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Dietary & Special Tags -->
+        <div class="py-4 border-b border-amber-100">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2.5">Dietary & Highlights</h3>
+          <div class="space-y-2 text-sm">
+            <label class="flex items-center gap-2 cursor-pointer hover:text-royal-800">
+              <input type="checkbox" id="tagGhee" onchange="applyFilters()" class="rounded text-royal-800 focus:ring-gold-500">
+              <span>Pure Cow Ghee</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-royal-800">
+              <input type="checkbox" id="tagBestseller" onchange="applyFilters()" class="rounded text-royal-800 focus:ring-gold-500">
+              <span>Bestseller</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-royal-800">
+              <input type="checkbox" id="tagSugarFree" onchange="applyFilters()" class="rounded text-royal-800 focus:ring-gold-500">
+              <span>Sugar Free / Low Sugar</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-royal-800">
+              <input type="checkbox" id="tagVrat" onchange="applyFilters()" class="rounded text-royal-800 focus:ring-gold-500">
+              <span>Fasting / Vrat Friendly</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Price Range Slider -->
+        <div class="py-4">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-neutral-500">Max Budget</h3>
+            <span class="text-sm font-bold text-royal-900" id="priceRangeDisplay">₹1500</span>
+          </div>
+          <input 
+            type="range" 
+            id="priceRange" 
+            min="200" 
+            max="2000" 
+            step="50" 
+            value="2000" 
+            class="w-full accent-royal-800 cursor-pointer"
+            oninput="updatePriceSlider(this.value)"
+          />
+          <div class="flex justify-between text-[11px] text-neutral-400 mt-1">
+            <span>₹200</span>
+            <span>₹1000</span>
+            <span>₹2000+</span>
+          </div>
+        </div>
+
+        <!-- Promo Banner inside Sidebar -->
+        <div class="mt-4 p-3.5 bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl border border-amber-300/80 text-center">
+          <p class="text-xs font-bold text-royal-900">Custom Corporate Gifting?</p>
+          <p class="text-[11px] text-neutral-600 mt-0.5">Customized sweet boxes with logo engraving & bulk discounts.</p>
+          <button onclick="openModal('bulkEnquiryModal')" class="mt-2.5 w-full bg-royal-800 hover:bg-royal-700 text-amber-200 text-xs font-bold py-1.5 rounded-lg shadow-sm">
+            Bulk Order Enquiry
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- ================= PRODUCT CATALOG GRID ================= -->
+      <section class="flex-1 w-full">
+        
+        <!-- Controls Bar: Title, Count, Sorting -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-amber-200/80 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h2 class="font-serif font-bold text-xl text-royal-900 flex items-center gap-2">
+              <span id="catalogCategoryTitle">Traditional Sweets Collection</span>
+              <span class="text-xs font-normal text-neutral-500" id="productCountLabel">(12 items)</span>
+            </h2>
+            <p class="text-xs text-neutral-500">Freshly made confections with authentic traditional recipes</p>
+          </div>
+
+          <!-- Sorting Dropdown -->
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <span class="text-xs font-semibold text-neutral-500 whitespace-nowrap">Sort By:</span>
+            <select id="sortSelect" onchange="applyFilters()" class="text-xs font-medium bg-cream border border-amber-200 rounded-xl px-3 py-2 text-royal-900 focus:outline-none focus:ring-1 focus:ring-gold-500 cursor-pointer w-full sm:w-auto">
+              <option value="featured">Featured & Recommended</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Highest Customer Rating</option>
+              <option value="name-asc">Alphabetical (A - Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active Filter Tags Pill Row -->
+        <div id="activePillsContainer" class="flex flex-wrap items-center gap-2 mb-4 hidden"></div>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div id="emptyCatalogState" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-amber-300 p-8">
+          <div class="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="cookie" class="w-8 h-8 text-gold-600"></i>
+          </div>
+          <h3 class="font-serif font-bold text-lg text-royal-900">No sweets matched your criteria</h3>
+          <p class="text-xs text-neutral-500 max-w-sm mx-auto mt-1">Try relaxing your price filters or check another delicious category.</p>
+          <button onclick="resetAllFilters()" class="mt-4 bg-royal-800 text-amber-200 text-xs font-bold px-4 py-2 rounded-full hover:bg-royal-700">
+            Show All Delights
+          </button>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= CUSTOMER REVIEWS & TESTIMONIALS ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-1.5 text-gold-600 font-bold text-xs uppercase tracking-widest">
+        <i data-lucide="heart-handshake" class="w-4 h-4"></i> Over 5 Million Sweet Smiles
+      </div>
+      <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-royal-900 mt-1">What Mithai Lovers Say</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-amber-200 relative">
+        <div class="flex text-amber-400 mb-2">★★★★★</div>
+        <p class="text-xs text-neutral-600 italic">"The Kaju Katli was melt-in-mouth and not overly sweet, just the perfect silver-vark finish. Vacuum packing kept it bakery-fresh till Mumbai!"</p>
+        <div class="mt-4 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-royal-100 text-royal-900 font-bold flex items-center justify-center text-xs">RK</div>
+          <div>
+            <h4 class="text-xs font-bold text-royal-900">Rajesh Khanna</h4>
+            <span class="text-[10px] text-neutral-400">Verified Buyer, Mumbai</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-amber-200 relative">
+        <div class="flex text-amber-400 mb-2">★★★★★</div>
+        <p class="text-xs text-neutral-600 italic">"Pure Desi Ghee Gulab Jamuns remind me of old Delhi weddings. Warm them for 15 seconds in the microwave and heaven awaits. Outstanding quality!"</p>
+        <div class="mt-4 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-amber-100 text-gold-800 font-bold flex items-center justify-center text-xs">SM</div>
+          <div>
+            <h4 class="text-xs font-bold text-royal-900">Sunita Mehra</h4>
+            <span class="text-[10px] text-neutral-400">Verified Buyer, Bengaluru</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-amber-200 relative">
+        <div class="flex text-amber-400 mb-2">★★★★★</div>
+        <p class="text-xs text-neutral-600 italic">"Ordered 15 Royal Assorted Hampers for our office Diwali gifting. Elegant velvet-finish packaging and arrived right on schedule. 10/10 recommend."</p>
+        <div class="mt-4 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-red-100 text-royal-800 font-bold flex items-center justify-center text-xs">AG</div>
+          <div>
+            <h4 class="text-xs font-bold text-royal-900">Aman Gupta</h4>
+            <span class="text-[10px] text-neutral-400">Corporate Gifting Partner, Gurgaon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-royal-900 text-amber-100 pt-12 pb-8 border-t-4 border-gold-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-royal-700/60">
+        
+        <!-- Brand Bio -->
+        <div class="lg:col-span-2 space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-serif font-black text-lg">B</div>
+            <span class="font-serif font-bold text-xl text-white">BIKANERVALA</span>
+          </div>
+          <p class="text-xs text-amber-200/80 leading-relaxed pr-4">
+            Continuing a golden legacy of pure Indian delicacies since 1905. From the vibrant desert sands of Bikaner to global homes, delivering purity, love, and authentic taste in every bite.
+          </p>
+          <div class="pt-2 flex items-center gap-3 text-xs text-gold-400 font-semibold">
+            <span>FSSAI Lic. 10012011000142</span>
+            <span>&bull;</span>
+            <span>ISO 22000 Certified</span>
+          </div>
+        </div>
+
+        <!-- Links: Collections -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">Sweet Collections</h4>
+          <ul class="space-y-2 text-xs text-amber-100/80">
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('kaju')" class="hover:text-gold-300">Kaju Katli & Cashew</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('ghee')" class="hover:text-gold-300">Desi Ghee Delicacies</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('chenna')" class="hover:text-gold-300">Bengali Rosogolla</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('laddus')" class="hover:text-gold-300">Motichoor & Besan Laddu</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('dryfruit')" class="hover:text-gold-300">Sugar Free Sweets</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('hampers')" class="hover:text-gold-300">Festive Gift Boxes</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: Quick Support -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">Customer Care</h4>
+          <ul class="space-y-2 text-xs text-amber-100/80">
+            <li><a href="javascript:void(0)" onclick="openModal('trackOrderModal')" class="hover:text-gold-300">Track Consignment</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('pincodeModal')" class="hover:text-gold-300">Delivery Pincodes</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('bulkEnquiryModal')" class="hover:text-gold-300">Bulk & Wedding Orders</a></li>
+            <li><a href="javascript:void(0)" onclick="openToast('Quality guarantee: If not delighted, we replace your sweet box.')" class="hover:text-gold-300">Purity Guarantee</a></li>
+            <li><a href="javascript:void(0)" class="hover:text-gold-300">Refund & Shipping Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Contact -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">Festive Club</h4>
+          <p class="text-xs text-amber-100/80 mb-2">Subscribe for early access to Diwali & Rakhi limited sweets.</p>
+          <div class="flex">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email" class="w-full text-xs bg-royal-800 border border-gold-500/30 rounded-l-lg px-2.5 py-2 text-white placeholder-amber-200/50 focus:outline-none">
+            <button onclick="handleSubscribeNewsletter()" class="bg-gold-500 hover:bg-gold-400 text-royal-900 font-bold text-xs px-3 rounded-r-lg">Join</button>
+          </div>
+          <div class="mt-4 flex items-center gap-2 text-xs text-amber-200">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5 text-gold-400"></i>
+            <span>+91 11 4050 5050 (9AM-8PM)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-amber-200/60 gap-4">
+        <p>&copy; 2026 Bikanervala Sweets & Delights. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <span class="hover:text-amber-100 cursor-pointer">Terms of Service</span>
+          <span>&bull;</span>
+          <span class="hover:text-amber-100 cursor-pointer">Privacy Notice</span>
+          <span>&bull;</span>
+          <span class="hover:text-amber-100 cursor-pointer">Security Certifications</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SLIDE-OVER CART DRAWER ================= -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-neutral-900/60 z-50 hidden opacity-0 transition-opacity duration-300" onclick="toggleCartDrawer(false)"></div>
+  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+    
+    <!-- Drawer Header -->
+    <div class="p-4 bg-royal-900 text-white flex items-center justify-between border-b border-gold-500/40">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-400"></i>
+        <h3 class="font-serif font-bold text-base">Your Mithai Box</h3>
+        <span id="drawerItemCountPill" class="bg-gold-500 text-royal-900 text-xs font-black px-2 py-0.5 rounded-full">0</span>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="text-neutral-300 hover:text-white p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="bg-amber-50 p-3 border-b border-amber-200">
+      <div class="flex justify-between text-xs font-semibold text-royal-900 mb-1.5">
+        <span id="freeShippingText">Add ₹999 for FREE Delivery</span>
+        <span id="freeShippingPercent" class="text-gold-600 font-bold">0%</span>
+      </div>
+      <div class="w-full bg-amber-200 rounded-full h-2 overflow-hidden">
+        <div id="freeShippingBar" class="bg-emerald-600 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Line Items List -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-4 space-y-3.5 divide-y divide-amber-100">
+      <!-- Injected via renderCart() -->
+    </div>
+
+    <!-- Empty Cart Placeholder -->
+    <div id="emptyCartView" class="hidden flex-1 flex-col items-center justify-center p-6 text-center">
+      <div class="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center mb-3">
+        <i data-lucide="package-open" class="w-10 h-10 text-gold-500"></i>
+      </div>
+      <h4 class="font-serif font-bold text-royal-900 text-base">Your Cart is as Empty as an Untouched Plate!</h4>
+      <p class="text-xs text-neutral-500 max-w-xs mt-1 mb-4">Add some fresh Kaju Katli or warm Gulab Jamuns to celebrate today.</p>
+      <button onclick="toggleCartDrawer(false)" class="bg-royal-800 hover:bg-royal-700 text-amber-200 text-xs font-bold px-5 py-2.5 rounded-full shadow">Explore Sweets</button>
+    </div>
+
+    <!-- Drawer Footer: Coupon, Gift Note & Invoice Summary -->
+    <div id="cartFooterSection" class="p-4 bg-cream border-t border-amber-200 space-y-3">
+      
+      <!-- Coupon Field -->
+      <div class="flex gap-2">
+        <input 
+          type="text" 
+          id="couponInput" 
+          placeholder="Enter coupon (DIWALI25)" 
+          class="flex-1 text-xs uppercase px-3 py-2 bg-white border border-amber-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-royal-800"
+        />
+        <button onclick="applyCouponCode()" class="bg-royal-800 hover:bg-royal-700 text-amber-200 text-xs font-bold px-3 py-2 rounded-lg">Apply</button>
+      </div>
+      <div id="couponAppliedMessage" class="hidden text-[11px] text-emerald-700 font-semibold flex items-center justify-between">
+        <span id="couponTextLabel">DIWALI25 applied (15% off)</span>
+        <button onclick="removeCoupon()" class="text-rose-600 underline">Remove</button>
+      </div>
+
+      <!-- Festive Gift Message Option -->
+      <details class="text-xs text-royal-900">
+        <summary class="cursor-pointer font-semibold text-gold-700 hover:text-royal-900 flex items-center gap-1">
+          <i data-lucide="gift" class="w-3.5 h-3.5"></i> Add complimentary gift greeting card
+        </summary>
+        <div class="mt-2 space-y-1.5">
+          <textarea id="giftMessageInput" rows="2" placeholder="e.g., Wishing you a joyous celebration from Sharma Family!" class="w-full text-xs p-2 rounded-lg border border-amber-200 focus:outline-none"></textarea>
+        </div>
+      </details>
+
+      <!-- Bill Breakdown -->
+      <div class="space-y-1 text-xs text-neutral-600 pt-2 border-t border-amber-200/60">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-semibold text-neutral-800">₹0</span>
+        </div>
+        <div class="flex justify-between text-emerald-700" id="cartDiscountRow">
+          <span>Coupon Savings</span>
+          <span id="cartDiscount">-₹0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Estimated Delivery</span>
+          <span id="cartDeliveryCharge" class="font-semibold text-neutral-800">₹60</span>
+        </div>
+        <div class="flex justify-between text-base font-extrabold text-royal-900 pt-1 border-t border-amber-200">
+          <span>Total Pay</span>
+          <span id="cartGrandTotal">₹0</span>
+        </div>
+      </div>
+
+      <!-- Proceed to Checkout Button -->
+      <button onclick="openCheckoutModal()" class="w-full bg-royal-800 hover:bg-royal-700 text-amber-200 font-bold py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 text-sm transition">
+        <span>Proceed to Checkout</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- ================= WISHLIST DRAWER ================= -->
+  <div id="wishlistDrawerBackdrop" class="fixed inset-0 bg-neutral-900/60 z-50 hidden opacity-0 transition-opacity duration-300" onclick="toggleWishlistDrawer(false)"></div>
+  <aside id="wishlistDrawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="p-4 bg-royal-900 text-white flex items-center justify-between border-b border-gold-500/40">
+      <div class="flex items-center gap-2">
+        <i data-lucide="heart" class="w-5 h-5 text-gold-400"></i>
+        <h3 class="font-serif font-bold text-base">Saved Favourites</h3>
+      </div>
+      <button onclick="toggleWishlistDrawer(false)" class="text-neutral-300 hover:text-white p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <div id="wishlistItemsList" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <!-- Injected dynamically -->
+    </div>
+  </aside>
+
+  <!-- ================= PRODUCT QUICK VIEW MODAL ================= -->
+  <div id="quickViewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-amber-200 animate-in fade-in zoom-in duration-200">
+      <div class="relative" id="quickViewContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PINCODE SELECTOR MODAL ================= -->
+  <div id="pincodeModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-amber-200">
+      <div class="flex justify-between items-center mb-3">
+        <div class="flex items-center gap-2 text-royal-900 font-serif font-bold text-base">
+          <i data-lucide="map-pin" class="w-4 h-4 text-gold-600"></i> Select Delivery Pincode
+        </div>
+        <button onclick="closeModal('pincodeModal')" class="text-neutral-400 hover:text-neutral-700"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <p class="text-xs text-neutral-500 mb-4">Enter your 6-digit postal code to check instant same-day express delivery eligibility.</p>
+      
+      <div class="flex gap-2">
+        <input type="text" id="pincodeInput" maxlength="6" placeholder="e.g. 110001, 400001" class="w-full text-sm p-2.5 border border-amber-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-royal-800 text-center font-bold tracking-widest">
+        <button onclick="verifyPincode()" class="bg-royal-800 text-amber-200 font-bold text-xs px-4 rounded-xl hover:bg-royal-700">Check</button>
+      </div>
+      <div id="pincodeStatus" class="mt-3 text-xs"></div>
+    </div>
+  </div>
+
+  <!-- ================= TRACK ORDER MODAL ================= -->
+  <div id="trackOrderModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-amber-200">
+      <div class="flex justify-between items-center mb-3">
+        <div class="flex items-center gap-2 text-royal-900 font-serif font-bold text-base">
+          <i data-lucide="truck" class="w-4 h-4 text-gold-600"></i> Live Order Tracker
+        </div>
+        <button onclick="closeModal('trackOrderModal')" class="text-neutral-400 hover:text-neutral-700"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <p class="text-xs text-neutral-500 mb-4">Enter your Bikanervala tracking number (e.g., BIK-88219) or mobile number.</p>
+      
+      <div class="flex gap-2">
+        <input type="text" id="trackInput" value="BIK-94021" class="w-full text-xs p-2.5 border border-amber-300 rounded-xl font-medium uppercase">
+        <button onclick="simulateTracking()" class="bg-royal-800 text-amber-200 font-bold text-xs px-4 rounded-xl hover:bg-royal-700">Track</button>
+      </div>
+      <div id="trackingTimeline" class="mt-5 space-y-3 pt-3 border-t border-amber-100 text-xs">
+        <div class="flex items-start gap-3">
+          <div class="w-3 h-3 rounded-full bg-emerald-600 mt-0.5"></div>
+          <div>
+            <p class="font-bold text-neutral-800">Freshly Handcrafted & Quality Checked</p>
+            <p class="text-[10px] text-neutral-400">Central Bikanervala Kitchen &bull; Completed</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-3 h-3 rounded-full bg-emerald-600 mt-0.5"></div>
+          <div>
+            <p class="font-bold text-neutral-800">Vacuum Aroma-Packed & Sealed</p>
+            <p class="text-[10px] text-neutral-400">Packaging Dept &bull; Completed</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-3 h-3 rounded-full bg-gold-500 animate-ping mt-0.5"></div>
+          <div>
+            <p class="font-bold text-royal-900">Out with Express Cold-Chain Rider</p>
+            <p class="text-[10px] text-neutral-500">Estimated delivery within 2 hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BULK ENQUIRY MODAL ================= -->
+  <div id="bulkEnquiryModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-amber-200">
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="font-serif font-bold text-lg text-royal-900 flex items-center gap-2">
+          <i data-lucide="gift" class="w-5 h-5 text-gold-600"></i> Corporate & Wedding Bulk Enquiry
+        </h3>
+        <button onclick="closeModal('bulkEnquiryModal')" class="text-neutral-400 hover:text-neutral-700"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <form onsubmit="handleBulkSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-semibold text-neutral-700 mb-1">Company / Host Name</label>
+          <input type="text" required placeholder="Aman & Partners Corp" class="w-full p-2.5 border rounded-lg">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-semibold text-neutral-700 mb-1">Phone Number</label>
+            <input type="tel" required placeholder="+91 9876543210" class="w-full p-2.5 border rounded-lg">
+          </div>
+          <div>
+            <label class="block font-semibold text-neutral-700 mb-1">Estimated Boxes</label>
+            <input type="number" min="20" value="50" class="w-full p-2.5 border rounded-lg">
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold text-neutral-700 mb-1">Occasion / Custom Requirement</label>
+          <textarea rows="3" placeholder="Diwali Gifting, customized ribbon with company logo and assorted Kaju Katli + Dodha Barfi boxes..." class="w-full p-2.5 border rounded-lg"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-royal-800 text-amber-200 font-bold py-2.5 rounded-xl hover:bg-royal-700 transition">Submit Bulk Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CHECKOUT MODAL ================= -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-amber-200 my-8">
+      
+      <!-- Checkout Header -->
+      <div class="flex justify-between items-center pb-4 border-b border-amber-100">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full bg-royal-900 text-gold-400 flex items-center justify-center font-bold text-xs">B</div>
+          <h3 class="font-serif font-bold text-lg text-royal-900">Express Purity Checkout</h3>
+        </div>
+        <button onclick="closeModal('checkoutModal')" class="text-neutral-400 hover:text-neutral-700">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Checkout Form -->
+      <form onsubmit="handleOrderSubmission(event)" class="mt-4 space-y-4">
+        
+        <!-- Step 1: Customer & Address -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-royal-900 mb-2 flex items-center gap-1.5">
+            <span class="w-4 h-4 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center text-[10px] font-bold">1</span>
+            Recipient & Delivery Address
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <input type="text" required placeholder="Full Name" value="Aarav Sharma" class="p-2.5 border border-amber-200 rounded-lg">
+            <input type="tel" required placeholder="Mobile Number (+91)" value="9811223344" class="p-2.5 border border-amber-200 rounded-lg">
+            <input type="text" required placeholder="Flat / House / Landmark" value="Flat 402, Royal Palms Residency" class="sm:col-span-2 p-2.5 border border-amber-200 rounded-lg">
+            <input type="text" required placeholder="City" value="New Delhi" class="p-2.5 border border-amber-200 rounded-lg">
+            <input type="text" required placeholder="Pincode" value="110001" class="p-2.5 border border-amber-200 rounded-lg">
+          </div>
+        </div>
+
+        <!-- Step 2: Preferred Delivery Slot -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-royal-900 mb-2 flex items-center gap-1.5">
+            <span class="w-4 h-4 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center text-[10px] font-bold">2</span>
+            Delivery Slot
+          </h4>
+          <div class="grid grid-cols-3 gap-2 text-xs">
+            <label class="border border-amber-200 p-2 rounded-lg cursor-pointer flex flex-col items-center hover:bg-amber-50 has-[:checked]:bg-amber-100 has-[:checked]:border-royal-800">
+              <input type="radio" name="slot" checked class="hidden">
+              <span class="font-bold text-royal-900">Express Today</span>
+              <span class="text-[10px] text-neutral-500">Within 3-4 Hrs</span>
+            </label>
+            <label class="border border-amber-200 p-2 rounded-lg cursor-pointer flex flex-col items-center hover:bg-amber-50 has-[:checked]:bg-amber-100 has-[:checked]:border-royal-800">
+              <input type="radio" name="slot" class="hidden">
+              <span class="font-bold text-royal-900">Tomorrow Morning</span>
+              <span class="text-[10px] text-neutral-500">9 AM - 12 PM</span>
+            </label>
+            <label class="border border-amber-200 p-2 rounded-lg cursor-pointer flex flex-col items-center hover:bg-amber-50 has-[:checked]:bg-amber-100 has-[:checked]:border-royal-800">
+              <input type="radio" name="slot" class="hidden">
+              <span class="font-bold text-royal-900">Festive Date</span>
+              <span class="text-[10px] text-neutral-500">Choose custom</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Payment Options -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-royal-900 mb-2 flex items-center gap-1.5">
+            <span class="w-4 h-4 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center text-[10px] font-bold">3</span>
+            Select Payment Method
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+            
+            <label class="border-2 border-amber-300 bg-amber-50/50 p-3 rounded-xl flex items-center gap-2 cursor-pointer has-[:checked]:border-royal-800 has-[:checked]:bg-amber-100">
+              <input type="radio" name="paymethod" value="upi" checked class="text-royal-800">
+              <div>
+                <span class="font-bold text-royal-900 block">UPI Instant</span>
+                <span class="text-[10px] text-neutral-500">GPay, PhonePe, Paytm</span>
+              </div>
+            </label>
+
+            <label class="border border-amber-200 p-3 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-amber-50 has-[:checked]:border-royal-800 has-[:checked]:bg-amber-100">
+              <input type="radio" name="paymethod" value="card" class="text-royal-800">
+              <div>
+                <span class="font-bold text-royal-900 block">Cards / NetBanking</span>
+                <span class="text-[10px] text-neutral-500">Visa, Master, RuPay</span>
+              </div>
+            </label>
+
+            <label class="border border-amber-200 p-3 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-amber-50 has-[:checked]:border-royal-800 has-[:checked]:bg-amber-100">
+              <input type="radio" name="paymethod" value="cod" class="text-royal-800">
+              <div>
+                <span class="font-bold text-royal-900 block">Cash On Delivery</span>
+                <span class="text-[10px] text-neutral-500">Pay at Doorstep</span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Summary in Checkout -->
+        <div class="bg-cream p-3 rounded-xl border border-amber-200 flex justify-between items-center text-xs">
+          <div>
+            <span class="text-neutral-500">Total Payable Amount:</span>
+            <span class="text-base font-black text-royal-900 ml-2" id="checkoutFinalAmount">₹0</span>
+          </div>
+          <span class="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 256-Bit Secure Transaction
+          </span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-royal-800 hover:bg-royal-700 text-amber-200 font-bold py-3.5 rounded-xl text-sm shadow-xl flex items-center justify-center gap-2 transition">
+          <i data-lucide="lock" class="w-4 h-4"></i> Place Order & Celebrate
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ORDER SUCCESS MODAL ================= -->
+  <div id="orderSuccessModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-gold-500 text-center relative overflow-hidden animate-in fade-in zoom-in duration-300">
+      
+      <!-- Festive Decor Corner -->
+      <div class="w-20 h-20 bg-gold-500/20 rounded-full blur-xl absolute -top-5 -left-5"></div>
+      <div class="w-20 h-20 bg-royal-800/20 rounded-full blur-xl absolute -bottom-5 -right-5"></div>
+
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-3 shadow">
+        <i data-lucide="check-circle" class="w-9 h-9"></i>
+      </div>
+
+      <h3 class="font-serif font-extrabold text-2xl text-royal-900">Mithai Mubarak!</h3>
+      <p class="text-xs text-neutral-600 mt-1">Your order has been received and our halwais are preparing your fresh box.</p>
+
+      <div class="my-4 bg-cream p-3 rounded-2xl border border-amber-200 text-xs text-left space-y-1.5">
+        <div class="flex justify-between">
+          <span class="text-neutral-500">Order ID:</span>
+          <span class="font-bold text-royal-900" id="successOrderId">BIK-84920</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-neutral-500">Recipient:</span>
+          <span class="font-bold text-royal-900">Aarav Sharma</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-neutral-500">Delivery Address:</span>
+          <span class="font-medium text-neutral-800">110001, New Delhi</span>
+        </div>
+        <div class="flex justify-between pt-1 border-t border-amber-200 font-bold text-royal-900">
+          <span>Amount Paid:</span>
+          <span id="successOrderAmount">₹0</span>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <button onclick="openModal('trackOrderModal'); closeModal('orderSuccessModal');" class="w-full bg-royal-800 hover:bg-royal-700 text-amber-200 font-bold py-2.5 rounded-xl text-xs transition">
+          Track Live Status
+        </button>
+        <button onclick="closeModal('orderSuccessModal')" class="w-full bg-cream hover:bg-amber-100 text-royal-900 font-bold py-2 rounded-xl text-xs transition">
+          Continue Sweet Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ================= LOGIC SCRIPT ================= -->
+  <script>
+    /* ================= 1. PRODUCTS DATA CATALOG ================= */
+    const SWEETS_DATABASE = [
+      {
+        id: 1,
+        name: "Diamond Cut Kaju Katli",
+        hindiName: "काजू कतली",
+        category: "kaju",
+        badge: "Bestseller",
+        badgeColor: "bg-amber-600",
+        rating: 4.9,
+        reviews: 1420,
+        description: "Finest Goan cashews grounded to velvety smoothness with edible pure silver leaf garnish. Mildly sweet, melt-in-mouth signature Bikanervala specialty.",
+        ingredients: "Cashew Nuts (Kaju), Sugar, Edible Silver Leaf (Vark), Cardamom.",
+        shelfLife: "30 Days (Aroma vacuum seal)",
+        image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=700&auto=format&fit=crop",
+        isGhee: false,
+        isSugarFree: false,
+        isVrat: true,
+        variants: [
+          { weight: "250g", price: 320, originalPrice: 350 },
+          { weight: "500g", price: 620, originalPrice: 699 },
+          { weight: "1kg", price: 1199, originalPrice: 1350 }
+        ]
+      },
+      {
+        id: 2,
+        name: "Pure Desi Ghee Gulab Jamun",
+        hindiName: "गुलाब जामुन",
+        category: "ghee",
+        badge: "Desi Ghee",
+        badgeColor: "bg-red-700",
+        rating: 4.8,
+        reviews: 980,
+        description: "Soft, golden dumplings prepared with condensed milk mawa, deep-fried in 100% pure desi cow ghee, steeped in aromatic saffron-rose syrup.",
+        ingredients: "Mawa (Khoya), Pure Cow Desi Ghee, Saffron, Rose Water, Sugar Syrup.",
+        shelfLife: "60 Days (Vacuum sealed tin)",
+        image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "500g (8 pcs)", price: 290, originalPrice: 340 },
+          { weight: "1kg (16 pcs)", price: 540, originalPrice: 620 }
+        ]
+      },
+      {
+        id: 3,
+        name: "Handcrafted Motichoor Laddu",
+        hindiName: "मोतीचूर लड्डू",
+        category: "laddus",
+        badge: "Pure Ghee",
+        badgeColor: "bg-red-700",
+        rating: 4.9,
+        reviews: 2100,
+        description: "Tiny micro-pearls of gram flour fried in aromatic desi ghee, infused with green cardamom and Magaz melon seeds. The timeless prasad favorite.",
+        ingredients: "Gram Flour (Besan), Pure Cow Ghee, Melon Seeds, Saffron, Cardamom.",
+        shelfLife: "15 Days at room temperature",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "250g", price: 190, originalPrice: 220 },
+          { weight: "500g", price: 360, originalPrice: 420 },
+          { weight: "1kg", price: 680, originalPrice: 790 }
+        ]
+      },
+      {
+        id: 4,
+        name: "Spongy Kolkata Rasgulla",
+        hindiName: "रसगुल्ला",
+        category: "chenna",
+        badge: "Bestseller",
+        badgeColor: "bg-amber-600",
+        rating: 4.7,
+        reviews: 860,
+        description: "Pristine white dumplings of fresh cow milk chenna boiled in delicate, clarified sugar syrup infused with rose water. Exceptionally spongy and light.",
+        ingredients: "Fresh Cow Milk Chenna, Sugar, Rose Water, Cardamom Essence.",
+        shelfLife: "30 Days in chilled conditions",
+        image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=700&auto=format&fit=crop",
+        isGhee: false,
+        isSugarFree: false,
+        isVrat: true,
+        variants: [
+          { weight: "500g (Tin)", price: 210, originalPrice: 250 },
+          { weight: "1kg (Tin)", price: 390, originalPrice: 450 }
+        ]
+      },
+      {
+        id: 5,
+        name: "Flaky Almond Soan Papdi",
+        hindiName: "सोन पापड़ी",
+        category: "ghee",
+        badge: "Traditional",
+        badgeColor: "bg-emerald-700",
+        rating: 4.6,
+        reviews: 620,
+        description: "Crisp, multilayered golden threads made with roasted besan and refined wheat, loaded with pistachio slivers and rich pure ghee.",
+        ingredients: "Desi Ghee, Gram Flour, Pistachios, Roasted Almonds, Green Cardamom.",
+        shelfLife: "90 Days (Aroma Fresh Box)",
+        image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "250g", price: 160, originalPrice: 190 },
+          { weight: "500g", price: 295, originalPrice: 340 }
+        ]
+      },
+      {
+        id: 6,
+        name: "Desi Ghee Besan Laddu",
+        hindiName: "बेसन लड्डू",
+        category: "laddus",
+        badge: "Bestseller",
+        badgeColor: "bg-amber-600",
+        rating: 4.8,
+        reviews: 1140,
+        description: "Slow-roasted coarse chickpea flour prepared in bubbling desi ghee, spiced with fragrant nutmeg and stuffed with crunchy roasted cashew nuts.",
+        ingredients: "Coarse Roasted Besan, Pure Cow Ghee, Bura Sugar, Cashews, Almonds.",
+        shelfLife: "45 Days",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "250g", price: 180, originalPrice: 210 },
+          { weight: "500g", price: 340, originalPrice: 390 },
+          { weight: "1kg", price: 650, originalPrice: 740 }
+        ]
+      },
+      {
+        id: 7,
+        name: "Rich Mysore Pak (Ghee Melt)",
+        hindiName: "मैसूर पाक",
+        category: "ghee",
+        badge: "Royal Delicacy",
+        badgeColor: "bg-amber-700",
+        rating: 4.9,
+        reviews: 790,
+        description: "South Indian royal sweet made with copious quantities of golden desi ghee. It literally melts as soon as placed on the tongue.",
+        ingredients: "100% Pure Cow Ghee, Roasted Gram Flour, Sugar, Cardamom.",
+        shelfLife: "25 Days",
+        image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "250g", price: 220, originalPrice: 260 },
+          { weight: "500g", price: 420, originalPrice: 480 },
+          { weight: "1kg", price: 799, originalPrice: 920 }
+        ]
+      },
+      {
+        id: 8,
+        name: "Caramelized Punjabi Dodha Burfi",
+        hindiName: "डोडा बर्फी",
+        category: "ghee",
+        badge: "Desi Ghee",
+        badgeColor: "bg-red-700",
+        rating: 4.8,
+        reviews: 580,
+        description: "Traditional Punjabi fudge crafted from slow-simmered sprouted wheat flour, milk mawa, pure ghee, and loaded with roasted cashew & walnut bits.",
+        ingredients: "Sprouted Wheat (Angoori), Cow Milk, Desi Ghee, Walnuts, Almonds.",
+        shelfLife: "30 Days",
+        image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "250g", price: 210, originalPrice: 250 },
+          { weight: "500g", price: 390, originalPrice: 450 },
+          { weight: "1kg", price: 750, originalPrice: 860 }
+        ]
+      },
+      {
+        id: 9,
+        name: "Sugar-Free Anjeer Dry Fruit Barfi",
+        hindiName: "अंजीर बर्फी",
+        category: "dryfruit",
+        badge: "Zero Added Sugar",
+        badgeColor: "bg-emerald-700",
+        rating: 4.9,
+        reviews: 930,
+        description: "Naturally sweet Turkish figs blended with roasted California almonds, pistachios, and cashews. Ideal for diabetic diets and mindful sweet lovers.",
+        ingredients: "Turkish Dried Figs (Anjeer), Almonds, Cashews, Pistachios, Saffron.",
+        shelfLife: "60 Days",
+        image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=700&auto=format&fit=crop",
+        isGhee: false,
+        isSugarFree: true,
+        isVrat: true,
+        variants: [
+          { weight: "250g", price: 380, originalPrice: 420 },
+          { weight: "500g", price: 720, originalPrice: 799 },
+          { weight: "1kg", price: 1390, originalPrice: 1550 }
+        ]
+      },
+      {
+        id: 10,
+        name: "Mathura Style Khoya Peda",
+        hindiName: "मथुरा पेड़ा",
+        category: "chenna",
+        badge: "Traditional",
+        badgeColor: "bg-amber-600",
+        rating: 4.7,
+        reviews: 640,
+        description: "Caramelized brown khoya pedas prepared according to Braj Mathura style, flavored with fragrant cardamom and hand-dusted with boora.",
+        ingredients: "Cow Milk Khoya, Boora Sugar, Fresh Cardamom, Ghee.",
+        shelfLife: "20 Days",
+        image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: true,
+        variants: [
+          { weight: "250g", price: 180, originalPrice: 210 },
+          { weight: "500g", price: 340, originalPrice: 390 }
+        ]
+      },
+      {
+        id: 11,
+        name: "Kaju Pistachio Roll",
+        hindiName: "काजू पिस्ता रोल",
+        category: "kaju",
+        badge: "Premium Gift",
+        badgeColor: "bg-purple-700",
+        rating: 4.9,
+        reviews: 510,
+        description: "Cylindrical cashew dough wrapper filled with a rich emerald green pistachio core, infused with saffron and wrapped in edible silver vark.",
+        ingredients: "Cashews, Pistachios, Sugar, Cardamom, Edible Silver Foil.",
+        shelfLife: "30 Days",
+        image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=700&auto=format&fit=crop",
+        isGhee: false,
+        isSugarFree: false,
+        isVrat: true,
+        variants: [
+          { weight: "250g", price: 340, originalPrice: 380 },
+          { weight: "500g", price: 650, originalPrice: 730 },
+          { weight: "1kg", price: 1250, originalPrice: 1400 }
+        ]
+      },
+      {
+        id: 12,
+        name: "Royal Mithai Thali Gift Box",
+        hindiName: "शाही मिठाई थाली",
+        category: "hampers",
+        badge: "Festive Box",
+        badgeColor: "bg-red-800",
+        rating: 5.0,
+        reviews: 1350,
+        description: "Curated royal presentation tray containing Kaju Katli (250g), Desi Ghee Besan Laddu (250g), Dodha Burfi (250g), and Premium California Almonds (150g).",
+        ingredients: "Assorted Cashew, Pure Cow Ghee, Pistachio, California Almonds, Mawa.",
+        shelfLife: "30 Days",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=700&auto=format&fit=crop",
+        isGhee: true,
+        isSugarFree: false,
+        isVrat: false,
+        variants: [
+          { weight: "900g Royal Hamper", price: 1150, originalPrice: 1399 },
+          { weight: "1.5kg Deluxe Gold Hamper", price: 1850, originalPrice: 2200 }
+        ]
+      }
+    ];
+
+    /* ================= 2. STATE MANAGEMENT ================= */
+    let cart = [];
+    let wishlist = [];
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let maxPrice = 2000;
+    let selectedVariantsMap = {}; // productId -> selected variant index
+    let appliedCoupon = null; // { code: 'DIWALI25', discountPercent: 15 }
+
+    // Initialize selected variants map default to index 0
+    SWEETS_DATABASE.forEach(item => {
+      selectedVariantsMap[item.id] = 0;
+    });
+
+    /* ================= 3. RENDER CATALOG ================= */
+    function renderCatalog() {
+      const grid = document.getElementById('productsGrid');
+      const emptyState = document.getElementById('emptyCatalogState');
+      const sortVal = document.getElementById('sortSelect').value;
+
+      // Filter flags
+      const tagGhee = document.getElementById('tagGhee').checked;
+      const tagBestseller = document.getElementById('tagBestseller').checked;
+      const tagSugarFree = document.getElementById('tagSugarFree').checked;
+      const tagVrat = document.getElementById('tagVrat').checked;
+
+      let filtered = SWEETS_DATABASE.filter(item => {
+        // Category check
+        if (currentCategory !== 'all' && item.category !== currentCategory) return false;
+        
+        // Search query check
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase();
+          const matchName = item.name.toLowerCase().includes(q);
+          const matchHindi = item.hindiName.includes(q);
+          const matchDesc = item.description.toLowerCase().includes(q);
+          if (!matchName && !matchHindi && !matchDesc) return false;
+        }
+
+        // Active variant price check
+        const activeVariant = item.variants[selectedVariantsMap[item.id] || 0];
+        if (activeVariant.price > maxPrice) return false;
+
+        // Tags check
+        if (tagGhee && !item.isGhee) return false;
+        if (tagBestseller && item.badge !== 'Bestseller') return false;
+        if (tagSugarFree && !item.isSugarFree) return false;
+        if (tagVrat && !item.isVrat) return false;
+
+        return true;
+      });
+
+      // Sorting
+      if (sortVal === 'price-asc') {
+        filtered.sort((a, b) => a.variants[selectedVariantsMap[a.id] || 0].price - b.variants[selectedVariantsMap[b.id] || 0].price);
+      } else if (sortVal === 'price-desc') {
+        filtered.sort((a, b) => b.variants[selectedVariantsMap[b.id] || 0].price - a.variants[selectedVariantsMap[a.id] || 0].price);
+      } else if (sortVal === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } else if (sortVal === 'name-asc') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      // Update counters
+      document.getElementById('productCountLabel').innerText = `(${filtered.length} delicacies)`;
+      
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(item => {
+        const selectedIdx = selectedVariantsMap[item.id] || 0;
+        const currentVariant = item.variants[selectedIdx];
+        const isWishlisted = wishlist.includes(item.id);
+        const cartQty = getCartItemQuantity(item.id, currentVariant.weight);
+
+        return `
+          <div class="bg-cardbg rounded-2xl overflow-hidden border border-amber-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group relative">
+            
+            <!-- Image Area -->
+            <div class="relative overflow-hidden bg-amber-50 h-52">
+              <img 
+                src="${item.image}" 
+                alt="${item.name}" 
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://placehold.co/600x400/7B111F/F3C043?text=Bikanervala+Mithai'"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              
+              <!-- Badges -->
+              <div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+                <span class="${item.badgeColor} text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
+                  ${item.badge}
+                </span>
+                ${item.isGhee ? `
+                  <span class="bg-amber-100/90 backdrop-blur-md text-royal-900 border border-amber-300 text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                    Pure Cow Ghee
+                  </span>
+                ` : ''}
+              </div>
+
+              <!-- Top Right Icons (Veg & Wishlist) -->
+              <div class="absolute top-3 right-3 flex flex-col gap-2 items-center">
+                <div class="veg-symbol shadow-sm" title="100% Vegetarian Confectionery">
+                  <div class="veg-dot"></div>
+                </div>
+                <button 
+                  onclick="toggleWishlist(${item.id})" 
+                  class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md hover:bg-white transition ${isWishlisted ? 'text-rose-600' : 'text-neutral-500'}"
+                  title="${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}"
+                >
+                  <i data-lucide="heart" class="w-4 h-4 ${isWishlisted ? 'fill-rose-600' : ''}"></i>
+                </button>
+              </div>
+
+              <!-- Quick View Button Overlay -->
+              <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <button onclick="quickView(${item.id})" class="w-full bg-white/95 text-royal-900 text-xs font-bold py-2 rounded-xl shadow-lg hover:bg-gold-500 hover:text-royal-900 transition flex items-center justify-center gap-1.5">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> Quick View Details
+                </button>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              
+              <div>
+                <!-- Rating & Reviews -->
+                <div class="flex items-center justify-between text-xs mb-1.5">
+                  <span class="text-[11px] font-semibold text-gold-700 font-serif">${item.hindiName}</span>
+                  <div class="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded border border-amber-200/60">
+                    <span class="text-amber-500 text-xs">★</span>
+                    <span class="font-bold text-royal-900 text-[11px]">${item.rating}</span>
+                    <span class="text-[10px] text-neutral-400">(${item.reviews})</span>
+                  </div>
+                </div>
+
+                <!-- Title & Mini Description -->
+                <h3 class="font-serif font-bold text-base text-royal-900 leading-snug group-hover:text-gold-700 transition">
+                  ${item.name}
+                </h3>
+                <p class="text-xs text-neutral-500 mt-1 line-clamp-2 leading-relaxed font-light">
+                  ${item.description}
+                </p>
+
+                <!-- Weight Variant Selectors -->
+                <div class="mt-3">
+                  <span class="text-[10px] uppercase font-bold text-neutral-400 block mb-1">Select Weight:</span>
+                  <div class="flex flex-wrap gap-1.5">
+                    ${item.variants.map((v, idx) => `
+                      <button 
+                        onclick="setVariant(${item.id}, ${idx})" 
+                        class="text-xs px-2.5 py-1 rounded-lg border font-medium transition ${selectedIdx === idx ? 'bg-royal-900 text-amber-200 border-royal-900 shadow-sm font-bold' : 'bg-white text-neutral-700 border-amber-200 hover:border-gold-500'}"
+                      >
+                        ${v.weight}
+                      </button>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Price & Add To Cart Button -->
+              <div class="pt-4 mt-3 border-t border-amber-100 flex items-center justify-between gap-2">
+                <div>
+                  <div class="flex items-baseline gap-1.5">
+                    <span class="font-serif font-black text-lg text-royal-900">₹${currentVariant.price}</span>
+                    <span class="text-xs text-neutral-400 line-through">₹${currentVariant.originalPrice}</span>
+                  </div>
+                  <span class="text-[10px] text-emerald-700 font-bold">Save ₹${currentVariant.originalPrice - currentVariant.price}</span>
+                </div>
+
+                <!-- Add to Cart or Stepper -->
+                <div>
+                  ${cartQty === 0 ? `
+                    <button 
+                      onclick="addToCart(${item.id}, ${selectedIdx})" 
+                      class="bg-royal-800 hover:bg-royal-700 text-amber-200 px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow hover:shadow-md"
+                    >
+                      <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add
+                    </button>
+                  ` : `
+                    <div class="flex items-center bg-royal-900 text-amber-200 rounded-xl overflow-hidden border border-royal-900 text-xs font-bold shadow">
+                      <button onclick="updateCartItemQty(${item.id}, '${currentVariant.weight}', -1)" class="px-2.5 py-1.5 hover:bg-royal-800 transition">-</button>
+                      <span class="px-2 text-white font-black">${cartQty}</span>
+                      <button onclick="updateCartItemQty(${item.id}, '${currentVariant.weight}', 1)" class="px-2.5 py-1.5 hover:bg-royal-800 transition">+</button>
+                    </div>
+                  `}
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    /* ================= 4. VARIANT SELECTION ================= */
+    function setVariant(productId, variantIdx) {
+      selectedVariantsMap[productId] = variantIdx;
+      renderCatalog();
+    }
+
+    /* ================= 5. CART SYSTEM ================= */
+    function addToCart(productId, variantIndex = null) {
+      const sweet = SWEETS_DATABASE.find(s => s.id === productId);
+      if (!sweet) return;
+
+      const vIdx = (variantIndex !== null) ? variantIndex : (selectedVariantsMap[productId] || 0);
+      const variant = sweet.variants[vIdx];
+
+      const existingIndex = cart.findIndex(c => c.id === productId && c.weight === variant.weight);
+
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({
+          id: sweet.id,
+          name: sweet.name,
+          hindiName: sweet.hindiName,
+          image: sweet.image,
+          weight: variant.weight,
+          price: variant.price,
+          quantity: 1
+        });
+      }
+
+      openToast(`Added "${sweet.name} (${variant.weight})" to your box!`);
+      updateCartUI();
+      renderCatalog();
+    }
+
+    function updateCartItemQty(productId, weight, change) {
+      const idx = cart.findIndex(c => c.id === productId && c.weight === weight);
+      if (idx === -1) return;
+
+      cart[idx].quantity += change;
+      if (cart[idx].quantity <= 0) {
+        const removed = cart.splice(idx, 1)[0];
+        openToast(`Removed ${removed.name} from cart`);
+      }
+
+      updateCartUI();
+      renderCatalog();
+    }
+
+    function removeCartLine(index) {
+      const removed = cart.splice(index, 1)[0];
+      openToast(`Removed ${removed.name} from your box`);
+      updateCartUI();
+      renderCatalog();
+    }
+
+    function getCartItemQuantity(productId, weight) {
+      const item = cart.find(c => c.id === productId && c.weight === weight);
+      return item ? item.quantity : 0;
+    }
+
+    function updateCartUI() {
+      const listEl = document.getElementById('cartItemsList');
+      const emptyView = document.getElementById('emptyCartView');
+      const footerSection = document.getElementById('cartFooterSection');
+      
+      const badgeHeader = document.getElementById('cartCountBadge');
+      const totalHeader = document.getElementById('cartTotalHeader');
+      const drawerCountPill = document.getElementById('drawerItemCountPill');
+
+      const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+      const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+
+      // Header Badges
+      badgeHeader.innerText = totalItems;
+      drawerCountPill.innerText = totalItems;
+      totalHeader.innerText = `₹${subtotal}`;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = '';
+        emptyView.classList.remove('hidden');
+        footerSection.classList.add('hidden');
+      } else {
+        emptyView.classList.add('hidden');
+        footerSection.classList.remove('hidden');
+
+        listEl.innerHTML = cart.map((item, index) => `
+          <div class="flex items-center gap-3 pt-3 first:pt-0">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover border border-amber-200">
+            <div class="flex-1 min-w-0">
+              <h4 class="text-xs font-bold text-royal-900 truncate">${item.name}</h4>
+              <span class="text-[11px] text-gold-700 font-semibold block">${item.weight} &bull; ₹${item.price}</span>
+              
+              <!-- Quantity Stepper -->
+              <div class="flex items-center gap-2 mt-1.5">
+                <div class="flex items-center bg-cream border border-amber-300 rounded-lg text-xs font-bold">
+                  <button onclick="updateCartItemQty(${item.id}, '${item.weight}', -1)" class="px-2 py-0.5 hover:bg-amber-200 text-royal-900">-</button>
+                  <span class="px-2 text-royal-900 font-extrabold text-[11px]">${item.quantity}</span>
+                  <button onclick="updateCartItemQty(${item.id}, '${item.weight}', 1)" class="px-2 py-0.5 hover:bg-amber-200 text-royal-900">+</button>
+                </div>
+                <span class="text-xs font-extrabold text-royal-900">₹${item.price * item.quantity}</span>
+              </div>
+            </div>
+            <button onclick="removeCartLine(${index})" class="text-neutral-400 hover:text-rose-600 p-1" title="Remove">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `).join('');
+      }
+
+      // Free shipping calculations (Target: ₹999)
+      const freeShippingGoal = 999;
+      const freeShippingPercent = Math.min(100, Math.round((subtotal / freeShippingGoal) * 100));
+      const progressBar = document.getElementById('freeShippingBar');
+      const freeText = document.getElementById('freeShippingText');
+      const freePercentText = document.getElementById('freeShippingPercent');
+
+      progressBar.style.width = `${freeShippingPercent}%`;
+      freePercentText.innerText = `${freeShippingPercent}%`;
+
+      let deliveryFee = 60;
+      if (subtotal >= freeShippingGoal || subtotal === 0) {
+        deliveryFee = 0;
+        freeText.innerText = subtotal === 0 ? "Add ₹999 for FREE Delivery" : "🎉 Free Delivery Unlocked!";
+      } else {
+        const diff = freeShippingGoal - subtotal;
+        freeText.innerText = `Add ₹${diff} more for FREE Delivery`;
+      }
+
+      // Calculations with coupon
+      let discountAmount = 0;
+      if (appliedCoupon && subtotal > 0) {
+        discountAmount = Math.round(subtotal * (appliedCoupon.discountPercent / 100));
+      }
+
+      const grandTotal = Math.max(0, subtotal - discountAmount + deliveryFee);
+
+      document.getElementById('cartSubtotal').innerText = `₹${subtotal}`;
+      document.getElementById('cartDiscount').innerText = `-₹${discountAmount}`;
+      document.getElementById('cartDeliveryCharge').innerText = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
+      document.getElementById('cartGrandTotal').innerText = `₹${grandTotal}`;
+      document.getElementById('checkoutFinalAmount').innerText = `₹${grandTotal}`;
+
+      lucide.createIcons();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('opacity-0');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    /* ================= 6. COUPON SYSTEM ================= */
+    function applyCouponCode() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      if (!code) {
+        openToast('Please enter a valid festive coupon code.');
+        return;
+      }
+      if (code === 'DIWALI25') {
+        appliedCoupon = { code: 'DIWALI25', discountPercent: 15 };
+        document.getElementById('couponAppliedMessage').classList.remove('hidden');
+        document.getElementById('couponTextLabel').innerText = 'DIWALI25 Applied (15% Savings)';
+        openToast('Awesome! 15% festive coupon applied successfully.');
+      } else if (code === 'SWEET10') {
+        appliedCoupon = { code: 'SWEET10', discountPercent: 10 };
+        document.getElementById('couponAppliedMessage').classList.remove('hidden');
+        document.getElementById('couponTextLabel').innerText = 'SWEET10 Applied (10% Savings)';
+        openToast('Sweet! 10% coupon applied.');
+      } else {
+        openToast('Invalid code. Try "DIWALI25" or "SWEET10"');
+      }
+      updateCartUI();
+    }
+
+    function quickApplyCoupon(code) {
+      document.getElementById('couponInput').value = code;
+      applyCouponCode();
+      toggleCartDrawer(true);
+    }
+
+    function removeCoupon() {
+      appliedCoupon = null;
+      document.getElementById('couponInput').value = '';
+      document.getElementById('couponAppliedMessage').classList.add('hidden');
+      openToast('Coupon removed.');
+      updateCartUI();
+    }
+
+    /* ================= 7. WISHLIST SYSTEM ================= */
+    function toggleWishlist(productId) {
+      const idx = wishlist.indexOf(productId);
+      const sweet = SWEETS_DATABASE.find(s => s.id === productId);
+
+      if (idx > -1) {
+        wishlist.splice(idx, 1);
+        openToast(`Removed ${sweet.name} from Wishlist`);
+      } else {
+        wishlist.push(productId);
+        openToast(`Added ${sweet.name} to Favourites ❤️`);
+      }
+
+      updateWishlistBadge();
+      renderCatalog();
+      renderWishlistDrawer();
+    }
+
+    function updateWishlistBadge() {
+      const badge = document.getElementById('wishlistCountBadge');
+      badge.innerText = wishlist.length;
+      if (wishlist.length > 0) {
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function openWishlistDrawer() {
+      renderWishlistDrawer();
+      toggleWishlistDrawer(true);
+    }
+
+    function toggleWishlistDrawer(open) {
+      const drawer = document.getElementById('wishlistDrawer');
+      const backdrop = document.getElementById('wishlistDrawerBackdrop');
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('opacity-0');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    function renderWishlistDrawer() {
+      const container = document.getElementById('wishlistItemsList');
+      if (wishlist.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <i data-lucide="heart" class="w-10 h-10 text-neutral-300 mx-auto mb-2"></i>
+            <p class="text-xs text-neutral-500">Your wishlist is waiting for your favorite sweets!</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      const items = SWEETS_DATABASE.filter(s => wishlist.includes(s.id));
+      container.innerHTML = items.map(item => `
+        <div class="flex items-center gap-3 p-2 bg-cream rounded-xl border border-amber-200">
+          <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-lg object-cover">
+          <div class="flex-1 min-w-0">
+            <h4 class="text-xs font-bold text-royal-900 truncate">${item.name}</h4>
+            <span class="text-xs text-gold-700 font-extrabold">Starting ₹${item.variants[0].price}</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <button onclick="addToCart(${item.id}, 0)" class="bg-royal-800 text-amber-200 text-[10px] font-bold px-2.5 py-1 rounded-md">Add</button>
+            <button onclick="toggleWishlist(${item.id})" class="text-[10px] text-neutral-400 hover:text-rose-600">Remove</button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    /* ================= 8. QUICK VIEW MODAL ================= */
+    function quickView(productId) {
+      const item = SWEETS_DATABASE.find(s => s.id === productId);
+      if (!item) return;
+
+      const activeIdx = selectedVariantsMap[productId] || 0;
+      const activeVariant = item.variants[activeIdx];
+
+      const content = document.getElementById('quickViewContent');
+      content.innerHTML = `
+        <button onclick="closeModal('quickViewModal')" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/90 text-neutral-700 hover:text-black flex items-center justify-center shadow">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          
+          <div class="h-64 md:h-full bg-amber-50 relative">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+            <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-royal-900 flex items-center gap-1.5 border border-amber-200">
+              <div class="veg-symbol"><div class="veg-dot"></div></div>
+              <span>100% Vegetarian & Pure</span>
+            </div>
+          </div>
+
+          <div class="p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1">
+                <span class="font-serif font-bold text-gold-700">${item.hindiName}</span>
+                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">FSSAI Certified</span>
+              </div>
+              <h2 class="font-serif font-bold text-2xl text-royal-900">${item.name}</h2>
+              <div class="flex items-center gap-2 mt-1 text-xs">
+                <span class="text-amber-500 font-bold">★ ${item.rating}</span>
+                <span class="text-neutral-400">(${item.reviews} verified reviews)</span>
+              </div>
+
+              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">${item.description}</p>
+
+              <!-- Ingredients & Shelf Life details -->
+              <div class="mt-4 bg-cream p-3 rounded-xl border border-amber-200 text-xs space-y-1.5">
+                <div><strong class="text-royal-900">Ingredients:</strong> <span class="text-neutral-600">${item.ingredients}</span></div>
+                <div><strong class="text-royal-900">Shelf Life:</strong> <span class="text-neutral-600">${item.shelfLife}</span></div>
+              </div>
+
+              <!-- Variant options in Modal -->
+              <div class="mt-4">
+                <label class="block text-xs font-bold text-neutral-700 mb-1.5">Available Weights:</label>
+                <div class="flex gap-2">
+                  ${item.variants.map((v, i) => `
+                    <button 
+                      onclick="setVariant(${item.id}, ${i}); quickView(${item.id});" 
+                      class="text-xs px-3 py-1.5 rounded-lg border font-medium ${activeIdx === i ? 'bg-royal-900 text-amber-200 border-royal-900 font-bold' : 'border-amber-200 text-neutral-700 hover:border-gold-500'}"
+                    >
+                      ${v.weight}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-amber-100 flex items-center justify-between gap-4">
+              <div>
+                <span class="text-xs text-neutral-400 block">Price for ${activeVariant.weight}</span>
+                <div class="flex items-baseline gap-2">
+                  <span class="font-serif font-black text-2xl text-royal-900">₹${activeVariant.price}</span>
+                  <span class="text-xs text-neutral-400 line-through">₹${activeVariant.originalPrice}</span>
+                </div>
+              </div>
+
+              <div class="flex gap-2">
+                <button onclick="addToCart(${item.id}, ${activeIdx}); closeModal('quickViewModal');" class="bg-royal-800 hover:bg-royal-700 text-amber-200 font-bold text-xs px-5 py-3 rounded-xl shadow-md transition flex items-center gap-1.5">
+                  <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Box
+                </button>
+                <button onclick="addToCart(${item.id}, ${activeIdx}); closeModal('quickViewModal'); toggleCartDrawer(true);" class="bg-gold-500 hover:bg-gold-400 text-royal-900 font-extrabold text-xs px-5 py-3 rounded-xl shadow-md transition">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      openModal('quickViewModal');
+      lucide.createIcons();
+    }
+
+    /* ================= 9. FILTER & SORT HANDLERS ================= */
+    function setCategoryFilter(cat) {
+      currentCategory = cat;
+      
+      // Update UI tabs
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.remove('text-amber-300', 'font-bold');
+        btn.classList.add('text-neutral-200');
+      });
+      // Highlight category radio button
+      const radio = document.querySelector(`input[name="catFilter"][value="${cat}"]`);
+      if (radio) radio.checked = true;
+
+      const titles = {
+        'all': 'Traditional Sweets Collection',
+        'kaju': 'Kaju & Cashew Delights',
+        'ghee': 'Pure Desi Ghee Classics',
+        'chenna': 'Bengali & Chenna Treats',
+        'laddus': 'Handcrafted Laddus & Halwa',
+        'dryfruit': 'Dry Fruit Bites & Low Calorie',
+        'hampers': 'Festive Hampers & Thali Boxes'
+      };
+      document.getElementById('catalogCategoryTitle').innerText = titles[cat] || 'Traditional Sweets';
+
+      renderCatalog();
+      renderActivePills();
+    }
+
+    function updatePriceSlider(val) {
+      maxPrice = parseInt(val, 10);
+      document.getElementById('priceRangeDisplay').innerText = `₹${maxPrice}`;
+      renderCatalog();
+      renderActivePills();
+    }
+
+    function applyFilters() {
+      renderCatalog();
+      renderActivePills();
+    }
+
+    function resetAllFilters() {
+      currentCategory = 'all';
+      searchQuery = '';
+      maxPrice = 2000;
+      document.getElementById('searchInput').value = '';
+      document.getElementById('priceRange').value = 2000;
+      document.getElementById('priceRangeDisplay').innerText = '₹2000';
+      document.getElementById('tagGhee').checked = false;
+      document.getElementById('tagBestseller').checked = false;
+      document.getElementById('tagSugarFree').checked = false;
+      document.getElementById('tagVrat').checked = false;
+      document.getElementById('sortSelect').value = 'featured';
+
+      const firstRadio = document.querySelector('input[name="catFilter"][value="all"]');
+      if (firstRadio) firstRadio.checked = true;
+
+      document.getElementById('catalogCategoryTitle').innerText = 'Traditional Sweets Collection';
+      renderCatalog();
+      renderActivePills();
+      openToast('Filters reset to default.');
+    }
+
+    function renderActivePills() {
+      const container = document.getElementById('activePillsContainer');
+      const pills = [];
+
+      if (currentCategory !== 'all') {
+        pills.push(`Category: ${currentCategory}`);
+      }
+      if (maxPrice < 2000) {
+        pills.push(`Under ₹${maxPrice}`);
+      }
+      if (document.getElementById('tagGhee').checked) pills.push('Pure Ghee');
+      if (document.getElementById('tagBestseller').checked) pills.push('Bestseller');
+      if (document.getElementById('tagSugarFree').checked) pills.push('Sugar Free');
+      if (document.getElementById('tagVrat').checked) pills.push('Vrat Friendly');
+
+      if (pills.length === 0) {
+        container.classList.add('hidden');
+        container.innerHTML = '';
+        return;
+      }
+
+      container.classList.remove('hidden');
+      container.innerHTML = `
+        <span class="text-xs font-semibold text-neutral-400 mr-1">Active Filters:</span>
+        ${pills.map(p => `
+          <span class="inline-flex items-center gap-1 bg-amber-100 text-royal-900 text-xs font-medium px-2.5 py-1 rounded-full border border-amber-300">
+            ${p}
+          </span>
+        `).join('')}
+        <button onclick="resetAllFilters()" class="text-xs text-rose-700 hover:underline font-bold ml-1">Clear</button>
+      `;
+    }
+
+    /* ================= 10. SEARCH FUNCTIONALITY ================= */
+    function handleSearch(val) {
+      searchQuery = val;
+      const clearBtn = document.getElementById('clearSearchBtn');
+      const dropdown = document.getElementById('searchDropdown');
+
+      if (val.trim().length > 0) {
+        clearBtn.classList.remove('hidden');
+        
+        // Autocomplete suggestions
+        const matches = SWEETS_DATABASE.filter(s => 
+          s.name.toLowerCase().includes(val.toLowerCase()) || 
+          s.hindiName.includes(val)
+        ).slice(0, 4);
+
+        if (matches.length > 0) {
+          dropdown.classList.remove('hidden');
+          dropdown.innerHTML = matches.map(m => `
+            <div onclick="selectSearchSuggestion('${m.name}')" class="flex items-center gap-3 p-2 hover:bg-cream rounded-xl cursor-pointer transition">
+              <img src="${m.image}" alt="${m.name}" class="w-10 h-10 rounded-lg object-cover">
+              <div class="flex-1 min-w-0">
+                <p class="text-xs font-bold text-royal-900 truncate">${m.name}</p>
+                <p class="text-[10px] text-neutral-500">${m.hindiName} &bull; Starting ₹${m.variants[0].price}</p>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          dropdown.classList.add('hidden');
+        }
+      } else {
+        clearBtn.classList.add('hidden');
+        dropdown.classList.add('hidden');
+      }
+
+      renderCatalog();
+    }
+
+    function selectSearchSuggestion(name) {
+      document.getElementById('searchInput').value = name;
+      searchQuery = name;
+      document.getElementById('searchDropdown').classList.add('hidden');
+      renderCatalog();
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      searchQuery = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      document.getElementById('searchDropdown').classList.add('hidden');
+      renderCatalog();
+    }
+
+    function toggleMobileSearch() {
+      const row = document.getElementById('mobileSearchRow');
+      row.classList.toggle('hidden');
+    }
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+      const dropdown = document.getElementById('searchDropdown');
+      const searchInput = document.getElementById('searchInput');
+      if (dropdown && !dropdown.contains(e.target) && e.target !== searchInput) {
+        dropdown.classList.add('hidden');
+      }
+    });
+
+    /* ================= 11. CHECKOUT & ORDERS ================= */
+    function openCheckoutModal() {
+      if (cart.length === 0) {
+        openToast('Please add delicious sweets to your cart first.');
+        return;
+      }
+      toggleCartDrawer(false);
+      openModal('checkoutModal');
+    }
+
+    function handleOrderSubmission(e) {
+      e.preventDefault();
+      closeModal('checkoutModal');
+
+      // Generate random order ID
+      const orderId = 'BIK-' + Math.floor(10000 + Math.random() * 90000);
+      const grandTotal = document.getElementById('cartGrandTotal').innerText;
+
+      document.getElementById('successOrderId').innerText = orderId;
+      document.getElementById('successOrderAmount').innerText = grandTotal;
+
+      // Trigger Confetti Celebrations
+      confetti({
+        particleCount: 90,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#DCA524', '#7B111F', '#16a34a', '#F59E0B']
+      });
+
+      // Clear Cart
+      cart = [];
+      updateCartUI();
+      renderCatalog();
+
+      openModal('orderSuccessModal');
+    }
+
+    /* ================= 12. UTILITY MODALS & NOTIFICATIONS ================= */
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function verifyPincode() {
+      const pin = document.getElementById('pincodeInput').value.trim();
+      const status = document.getElementById('pincodeStatus');
+
+      if (pin.length !== 6 || isNaN(pin)) {
+        status.innerHTML = `<span class="text-rose-600 font-bold">Please enter a valid 6-digit Indian pincode.</span>`;
+        return;
+      }
+
+      status.innerHTML = `
+        <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 font-medium">
+          ✓ Pincode <strong>${pin}</strong> is eligible for same-day express delivery via refrigerated vans!
+        </div>
+      `;
+      document.getElementById('currentPincodeLabel').innerText = `Deliver to: ${pin}`;
+      setTimeout(() => {
+        closeModal('pincodeModal');
+        openToast(`Delivery location set to Pincode: ${pin}`);
+      }, 1500);
+    }
+
+    function simulateTracking() {
+      openToast('Tracking refreshed: Consignment is on route with Cold-Chain Rider.');
+    }
+
+    function handleBulkSubmit(e) {
+      e.preventDefault();
+      closeModal('bulkEnquiryModal');
+      openToast('Thank you! Our Corporate Gifting Concierge will call you in 30 minutes.');
+    }
+
+    function handleSubscribeNewsletter() {
+      const email = document.getElementById('newsletterEmail').value.trim();
+      if (!email || !email.includes('@')) {
+        openToast('Please provide a valid email address.');
+        return;
+      }
+      document.getElementById('newsletterEmail').value = '';
+      openToast('Welcome to the Festive Mithai Club! Use coupon SWEET10 for 10% off.');
+    }
+
+    function openToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = "bg-royal-900 text-amber-200 border border-gold-500/60 shadow-2xl px-4 py-3 rounded-2xl text-xs font-semibold flex items-center gap-2 transform transition-all duration-300 translate-y-5 opacity-0";
+      toast.innerHTML = `
+        <div class="veg-symbol"><div class="veg-dot"></div></div>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-5', 'opacity-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    /* ================= 13. APP STARTUP ================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      updateCartUI();
+      lucide.createIcons();
+    });
+  </script>
+
+</body>
+</html>
